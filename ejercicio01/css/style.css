@@ -8,10 +8,14 @@ body {
 }
 .contenedor {
 	background:#ccc;
+	width: 90%;
+	margin: 0 auto;
+	min-height: 100vh;
+
 
 	display: grid;
 	grid-template-columns: repeat(5,1fr);
-	grid-template-rows: 
+	grid-template-rows: auto 1fr 1fr auto;
 
 }
 header, footer {
@@ -36,6 +40,8 @@ nav a:hover {
 	background:#e74c3c;
 }
 .primero{
+	text-align: justify;
+
 }
 article{
 	width: 85%;
