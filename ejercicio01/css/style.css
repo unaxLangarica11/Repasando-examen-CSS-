@@ -8,6 +8,7 @@ body {
 }
 .contenedor {
 	background:#ccc;
+
 	width: 90%;
 	margin: 0 auto;
 	min-height: 100vh;
@@ -16,6 +17,11 @@ body {
 	display: grid;
 	grid-template-columns: repeat(5,1fr);
 	grid-template-rows: auto 1fr 1fr auto;
+
+	grid-template-areas:"header header header header header"
+						"nav primero primero gato aside"
+						"nav facebook snap twitter aside"
+						"footer footer footer footer footer";
 
 }
 header, footer {
@@ -28,8 +34,16 @@ header .logo a {
 	text-decoration: none;
 	line-height:50px;
 }
+header{
+	grid-area: header;
+}
 nav{
 	background:#c0392b;
+
+	grid-area: nav;
+
+	display: flex;
+	flex-direction: column;
 }
 a{
 	color:#fff;
@@ -40,6 +54,8 @@ nav a:hover {
 	background:#e74c3c;
 }
 .primero{
+	grid-area: primero;
+
 	text-align: justify;
 
 }
@@ -48,25 +64,78 @@ article{
 	text-align: center;
 	margin: .5em 0;
 }
+article:nth-of-type(2){
+
+	grid-area: gato;
+}
+
+article:nth-of-type(3){
+
+	grid-area: facebook;
+
+}
+
+article:nth-of-type(4){
+
+	grid-area: snap;
+}
+
+article:nth-of-type(5){
+
+	grid-area: twitter;
+}
+
+
 img{
 	border-radius: 1em;
 	padding: .5em;
+
+	max-width: 100%;
 }
+
 img[alt="logo"]{
 	border-radius: 50%;
 }
+
 aside {
+	grid-area: aside;
+
 	background:#e67e22;
 	padding:20px;
+
+	display: flex;
+
+	
 }
+
 aside .widget {
 	background: #d35400;
 	height:150px;
+
 	margin:10px;
 }
 footer {
+
+	grid-area: footer;
+
 	font-size: 1em;
+
+	display: flex;
+	
 }
+
 footer .social {
 	background:#e67e22;
+}
+
+@media(max-width: 768px){
+
+	.contenedor{
+
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: auto auto 1fr 1fr auto;
+
+	}
+
 }
